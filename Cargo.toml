@@ -1,0 +1,35 @@
+[package]
+name = "tuner"
+version = "0.1.0"
+edition = "2024"
+description = "Bass guitar tuner with a vintage VU-meter look"
+authors = ["Eric Afenyo"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[dependencies]
+cpal = "0.18.2"
+eframe = "0.37.0"
+ringbuf = "0.6.0"
+
+[package.metadata.deb]
+name = "bass-tuner"
+section = "sound"
+extended-description = "A desktop bass guitar tuner with an analog cents meter, auto string detection, chromatic mode and common 4, 5 and 6-string tunings."
+depends = "$auto"
+assets = [
+    ["target/release/tuner", "usr/bin/bass-tuner", "755"],
+    ["assets/linux/bass-tuner.desktop", "usr/share/applications/bass-tuner.desktop", "644"],
+    ["assets/icons/bass-tuner.png", "usr/share/icons/hicolor/512x512/apps/bass-tuner.png", "644"],
+    ["README.md", "usr/share/doc/bass-tuner/README.md", "644"],
+]
+
+[package.metadata.generate-rpm]
+name = "bass-tuner"
+assets = [
+    { source = "target/release/tuner", dest = "/usr/bin/bass-tuner", mode = "755" },
+    { source = "assets/linux/bass-tuner.desktop", dest = "/usr/share/applications/bass-tuner.desktop", mode = "644" },
+    { source = "assets/icons/bass-tuner.png", dest = "/usr/share/icons/hicolor/512x512/apps/bass-tuner.png", mode = "644" },
+    { source = "README.md", dest = "/usr/share/doc/bass-tuner/README.md", mode = "644", doc = true },
+    { source = "LICENSE", dest = "/usr/share/licenses/bass-tuner/LICENSE", mode = "644", doc = true },
+]

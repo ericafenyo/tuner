@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Bass Tuner
+Comment=Tune your bass guitar
+Exec=bass-tuner
+Icon=bass-tuner
+Terminal=false
+Categories=AudioVideo;Audio;Music;
+Keywords=tuner;bass;guitar;pitch;
